@@ -1,0 +1,38 @@
+User
+-
+UserID int pk FK -< Channel.UserID
+Name string
+DOB date
+Email email
+ProfileType selection
+
+Channel
+--
+ChannelName string pk FK -< Videos.VideoID
+UserID
+Subscribers FK -< Subscribers.SubscriberID
+
+Subscribers
+---
+SubscriberID int
+ChannelName
+
+Videos
+---
+VideoID int pk
+Playlist string FK -< Playlists.PlaylistID
+File jpg
+UploadDate date
+views int
+Comments FK -< Video_Comment.CommentID
+Like
+
+Playlists
+----
+PlaylistName string
+PlaylistID int pk
+
+Video_Comment
+---
+CommentID int
+CommentContent string
